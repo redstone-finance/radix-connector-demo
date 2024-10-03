@@ -1,0 +1,24 @@
+{
+  "name": "@redstone-finance/radix-connector",
+  "version": "0.6.2",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+  },
+  "dependencies": {
+    "@redstone-finance/sdk": "0.6.2",
+    "axios": "^1.6.2",
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "node-jq": "^4.2.2"
+  },
+  "files": [
+    "dist/src/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,43 @@
+/------------------------------------------------------------\
+| 1. Fetching the RedStone payload                           |
+| cBLU                                                       |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 2. Submitting the transaction to Radix                     |
+| cPNK                                                       |
+| o  Calling Component method get_prices(feed_ids, payload)  |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 3. Processing the payload                                  |
+| cPNK                                                       |
+| o  Verifying marker                                        |
+| o  Parsing payload                                         |
+| o  Extracting DataPackages                                 |
+| o  Building DataPoints with feed Values                    |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 4. Validating data & signers                               |
+| cPNK                                                       |
+| o  Validating Timestamps                                   |
+| o  Recovering signer addresses from signatures             |
+| o  Filtering trusted signers                               |
+| o  Checking signer count threshold                         |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 5. Returning results:                                      |
+| cBLU                                                       |
+| o  timestamp                                               |
+| o  prices (aggregated values)                              |
+\------------------------------------------------------------/
