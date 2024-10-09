@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg 
+    xmlns='http://www.w3.org/2000/svg'
+    width='1320'
+    height='700'
+    shape-rendering='optimizeSpeed'
+    version='1.0'>
+  <defs>
+    <filter id='f2' x='0' y='0' width='200%' height='200%'>
+      <feOffset result='offOut' in='SourceGraphic' dx='5' dy='5' />
+      <feGaussianBlur result='blurOut' in='offOut' stdDeviation='3' />
+      <feBlend in='SourceGraphic' in2='blurOut' mode='normal' />
+    </filter>
+  </defs>
+  <g stroke-width='1' stroke-linecap='square' stroke-linejoin='round'>
+    <rect x='0' y='0' width='1320' height='700' style='fill: #fd627a'/>
+    <path stroke='#ffffff' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='#ffffff' d='M60.0 98.0 Q50.0 98.0 50.0 112.0 L50.0 196.0 Q50.0 210.0 60.0 210.0 L1260.0 210.0 L1260.0 210.0 Q1270.0 210.0 1270.0 196.0 L1270.0 112.0 L1270.0 112.0 Q1270.0 98.0 1260.0 98.0 L60.0 98.0 z' />
+    <path stroke='#ffffff' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='#ffffff' d='M60.0 322.0 Q50.0 322.0 50.0 336.0 L50.0 420.0 Q50.0 434.0 60.0 434.0 L1260.0 434.0 L1260.0 434.0 Q1270.0 434.0 1270.0 420.0 L1270.0 336.0 L1270.0 336.0 Q1270.0 322.0 1260.0 322.0 L60.0 322.0 z' />
+    <path stroke='#ffffff' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='#ffffff' d='M60.0 546.0 Q50.0 546.0 50.0 560.0 L50.0 616.0 Q50.0 630.0 60.0 630.0 L1260.0 630.0 L1260.0 630.0 Q1270.0 630.0 1270.0 616.0 L1270.0 560.0 L1270.0 560.0 Q1270.0 546.0 1260.0 546.0 L60.0 546.0 z' />
+    <path stroke='none' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='#ffffff' d='M520.0 280.0 L530.0 308.0 L540.0 280.0 z' />
+    <path stroke='none' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='#ffffff' d='M520.0 504.0 L530.0 532.0 L540.0 504.0 z' />
+    <path stroke='#ffffff' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M530.0 238.0 L530.0 294.0 ' />
+    <path stroke='#ffffff' stroke-width='2,ffffff' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M530.0 462.0 L530.0 518.0 ' />
+    <text x='189' y='136' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[1. Pulling prices from Radix with core model]]></text>
+    <text x='195' y='360' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[2. Pushing prices to Radix with classic model]]></text>
+    <text x='252' y='416' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[Calling method write_prices(feed_ids, payload)]]></text>
+    <text x='164' y='584' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[3. Reading prices from Radix storage]]></text>
+    <text x='254' y='192' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[Calling Component method get_prices(feed_ids, payload)]]></text>
+    <text x='86' y='192' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[o ]]></text>
+    <text x='86' y='416' font-family='Menlo' font-size='29' stroke='none' fill='#fd627a' ><![CDATA[o ]]></text>
+  </g>
+</svg>

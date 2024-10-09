@@ -25,7 +25,7 @@ the data, execute
 make -C ../scrypto update_data
 ```
 
-1. A payload generator from [`../../../sdk/scripts/payload-generator/`](../../sdk/scripts/payload-generator/index.ts) is
+1. A payload generator from [`../../../sdk/scripts/payload-generator/`](../payload-generator/index.ts) is
    used under the hood
 1. The files are saved into the [`sample-data`](../scrypto/sample-data) directory
 1. The function also updates the current time in the `resim` environment
@@ -42,7 +42,7 @@ make -C ../scrypto deploy
 
 1. The deployed [`package.resim.addr`](../scrypto/price_adapter/package.resim.addr)
    and [`component.resim.addr`](../scrypto/price_adapter/package.resim.addr) hashes can be found in the
-   [`price_adapter`](price_adapter)
+   [`price_adapter`](../scrypto/price_adapter)
    directory.
 
 ### Pull model
