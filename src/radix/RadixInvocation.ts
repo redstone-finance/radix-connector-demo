@@ -28,14 +28,12 @@ export abstract class RadixInvocation<T> {
 }
 
 export abstract class VoidRadixInvocation extends RadixInvocation<void> {
-  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   override interpret(_value: unknown) {
     return;
   }
 }
 
 export abstract class ValueRadixInvocation<T> extends RadixInvocation<T> {
-  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   override interpret(value: unknown) {
     return value as T;
   }

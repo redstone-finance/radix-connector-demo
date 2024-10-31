@@ -5,6 +5,8 @@ import {
 import { BigNumberish } from "ethers";
 import { RadixContractAdapter } from "../../radix/RadixContractAdapter";
 import { GetPricesRadixMethod } from "./methods/GetPricesRadixMethod";
+import { ReadPricesRadixMethod } from "./methods/ReadPricesRadixMethod";
+import { ReadTimestampRadixMethod } from "./methods/ReadTimestampRadixMethod";
 import { WritePricesRadixMethod } from "./methods/WritePricesRadixMethod";
 
 export class PriceAdapterRadixContractAdapter
@@ -54,5 +56,22 @@ export class PriceAdapterRadixContractAdapter
 
   async readTimestampFromContract(): Promise<number> {
     return Number(await this.client.readValue(this.componentId, "timestamp"));
+  }
+
+  async readPricesFromContractWithMethod(
+    paramsProvider: ContractParamsProvider
+  ) {
+    return await this.client.call(
+      new ReadPricesRadixMethod(
+        this.componentId,
+        paramsProvider.getDataFeedIds()
+      )
+    );
+  }
+
+  async readTimestampFromContractWithMethod() {
+    return Number(
+      await this.client.call(new ReadTimestampRadixMethod(this.componentId))
+    );
   }
 }

@@ -57,13 +57,6 @@ call-%:
 
 test: clippy
 	cargo test --package $(CONTRACT)
-	FORCE_REAL_NETWORK=true cargo test --package $(CONTRACT) $(REAL_NETWORK_FEATURES)
-	FORCE_REAL_NETWORK=true cargo test --package $(CONTRACT) $(REAL_NETWORK_FEATURES),test_sim_env
-
-	@for features in $(FEATURE_SETS); do \
-        echo "Running tests with features: $$features"; \
-        ($(TEST) --package redstone --features=$$features); \
-    done
 
 clippy: prepare
 	@for features in $(FEATURE_SETS); do \

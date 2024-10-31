@@ -1,7 +1,8 @@
+import { BigNumberish } from "ethers";
 import { ValueRadixInvocation } from "../../../radix/RadixInvocation";
 import { RadixTransaction } from "../../../radix/RadixTransaction";
 
-export class ReadTimestampRadixMethod extends ValueRadixInvocation<bigint> {
+export class ReadTimestampRadixMethod extends ValueRadixInvocation<BigNumberish> {
   constructor(component: string) {
     super(component, "read_timestamp");
   }

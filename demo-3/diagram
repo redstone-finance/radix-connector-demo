@@ -1,0 +1,42 @@
+
+/------------------------------------------------------------\
+| 1. Rust/Scrypto RedStone SDK - 97 unit tests               |
+| cBLU                                                       |
+| o  data processing&aggregating                             |
+| o  signature recovering                                    |
+| o  some math operations (like median)                      |
+| o  business requirements, for example                      |
+|    * unique signer count threshold                         |
+|    * timestamp validation)                                 |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 2. Scrypto price_adapter - 18 different tests              |
+| cBLU                                                       |
+| o  Instantiating                                           |
+| o  get_prices (pull/core model)                            |
+| o  write_prices (push/classic model)                       |
+| o  read_prices (written to component state)                |
+| o  with happy and unhappy paths (particular failures)      |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 3. Typescript SDK unit tests with ~95% coverage            |
+| cBLU                                                       |
+| o  API Client calls&methods                                |
+| o  Radix Contract Adapter                                  |
+| o  Parsing outputs/states with SBOR data                   |
+\------------------------------------------------------------/
+                        |
+                        |
+                        v
+/------------------------------------------------------------\
+| 4. Typescript e2e tests for real components                |
+| cBLU                                                       |
+| o  Helper deploying&instantiating scripts                  |
+| o  Push transactions, read data                            |
+\------------------------------------------------------------/

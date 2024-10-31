@@ -15,7 +15,6 @@ export class RadixTransaction {
     return [new LockFeeRadixMethod(this.account, this.fee)];
   }
 
-  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   getFinalMethods(): RadixInvocation<unknown>[] {
     return [new DepositBatchRadixMethod(this.account)];
   }
@@ -38,7 +37,6 @@ export class RadixTransaction {
     return builder.build();
   }
 
-  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   interpret(output: unknown[]) {
     const index = 1 + this.getFinalMethods().length;
 
