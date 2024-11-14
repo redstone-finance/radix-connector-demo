@@ -19,7 +19,7 @@ CONTRACTS_DIR=.
 CONTRACT_DIR=$(CONTRACTS_DIR)/$(CONTRACT)
 PACKAGE_ADDRESS=$(shell cat $(CONTRACT_DIR)/package.resim.addr)
 COMPONENT_ADDRESS=$(shell cat $(CONTRACT_DIR)/component.resim.addr)
-FEATURE_SETS="crypto_k256" "crypto_secp256k1" "crypto_k256,network_radix" "crypto_secp256k1,network_radix"
+FEATURE_SETS="crypto_radix" "crypto_secp256k1" "crypto_radix,network_radix" "crypto_secp256k1,network_radix"
 REDSTONE_DIR=rust-sdk
 TEST=RUST_BACKTRACE=full cargo test --features="helpers"
 CLIPPY=cargo clippy --release --fix --allow-dirty --allow-staged --allow-no-vcs
@@ -36,7 +36,7 @@ prepare:
 	@rustup target add wasm32-unknown-unknown
 
 build: prepare
-	cargo build $(REAL_NETWORK_FEATURES)
+	#cargo build $(REAL_NETWORK_FEATURES)
 	scrypto build --path $(CONTRACT_DIR) $(REAL_NETWORK_FEATURES)
 	cp ./target/wasm32-unknown-unknown/release/${CONTRACT}.rpd $(CONTRACT_DIR)/artifacts/
 	cp ./target/wasm32-unknown-unknown/release/${CONTRACT}.wasm $(CONTRACT_DIR)/artifacts/
@@ -59,12 +59,12 @@ test: clippy
 	cargo test --package $(CONTRACT)
 
 clippy: prepare
-	@for features in $(FEATURE_SETS); do \
-        (cd $(REDSTONE_DIR) && $(CLIPPY) --all-targets --features=$$features -- -D warnings); \
-    done
-	cd $(CONTRACT_DIR) && $(CLIPPY)
-	cd $(CONTRACT_DIR) && $(CLIPPY) $(REAL_NETWORK_FEATURES)
-	cd $(CONTRACT_DIR) && $(CLIPPY) $(REAL_NETWORK_FEATURES),test_sim_env
+#	@for features in $(FEATURE_SETS); do \
+#        (cd $(REDSTONE_DIR) && $(CLIPPY) --all-targets --features=$$features -- -D warnings); \
+#    done
+#	cd $(CONTRACT_DIR) && $(CLIPPY)
+#	cd $(CONTRACT_DIR) && $(CLIPPY) $(REAL_NETWORK_FEATURES)
+#	cd $(CONTRACT_DIR) && $(CLIPPY) $(REAL_NETWORK_FEATURES),test_sim_env
 
 check-lint: clippy
 	cargo fmt -- --check

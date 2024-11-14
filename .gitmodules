@@ -1,0 +1,4 @@
+[submodule "scrypto/radixdlt-scrypto"]
+	path = scrypto/radixdlt-scrypto
+	url = https://github.com/radixdlt/radixdlt-scrypto.git
+	branch = develop

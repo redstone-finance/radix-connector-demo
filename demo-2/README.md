@@ -20,7 +20,7 @@ yarn install
 yarn sample-deploy
 ```
 
-2. The deployed [`package.stokenet.addr`](../scrypto/price_adapter/package.resim.addr) address can be found in the
+2. The deployed [`package.stokenet.addr`](../scrypto/price_adapter/package.stokenet.addr) address can be found in the
    [`price_adapter`](../scrypto/price_adapter)
    directory.
 3. The script uses [`RadixPackageDeployer`](../scripts/RadixPackageDeployer.ts) 
@@ -35,7 +35,7 @@ as the Radix Desktop Tool uses.
 yarn sample-instantiate
 ```
 
-2. The deployed [`component.stokenet.addr`](../scrypto/price_adapter/package.resim.addr) address can be found in the
+2. The deployed [`component.stokenet.addr`](../scrypto/price_adapter/package.stokenet.addr) address can be found in the
    [`price_adapter`](../scrypto/price_adapter)
    directory.
 3. The script uses [`PriceAdapterRadixContractDeployer`](../src/contracts/price_adapter/PriceAdapterRadixContractDeployer.ts)

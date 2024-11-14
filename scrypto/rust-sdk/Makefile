@@ -6,7 +6,9 @@ FEATURE_SETS="crypto_secp256k1,network_radix"
 prepare:
 	@rustup target add wasm32-unknown-unknown
 
-test:
+test: clippy
+#	$(TEST) --features="crypto_radix,network_radix"
+#	$(TEST) --features="crypto_radix"
 	@for features in $(FEATURE_SETS); do \
         echo "Running tests with features: $$features"; \
         ($(TEST) --features=$$features); \

@@ -1,3 +1,4 @@
+import { NetworkId } from "@radixdlt/radix-engine-toolkit";
 import { RedstoneCommon } from "@redstone-finance/utils";
 import "dotenv/config";
 import fs from "fs";
@@ -5,6 +6,11 @@ import path from "path";
 import { z } from "zod";
 
 const SCRYPTO_DIR = `../scrypto`;
+
+export const NETWORK = {
+  id: NetworkId.Enkinet,
+  name: "enkinet",
+};
 
 export const CONTRACT_NAME = "price_adapter";
 export const PRIVATE_KEY = {
@@ -16,7 +22,9 @@ export const IS_CI = RedstoneCommon.getFromEnv(
 );
 
 export async function loadAddress(name: string, subdirectory?: string) {
-  return await fs.promises.readFile(getFilename(name, subdirectory), "utf8");
+  return (
+    await fs.promises.readFile(getFilename(name, subdirectory), "utf8")
+  ).trim();
 }
 
 export function getFilename(name: string, subdirectory?: string) {

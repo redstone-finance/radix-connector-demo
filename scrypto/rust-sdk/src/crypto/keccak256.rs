@@ -1,10 +1,19 @@
-use sha3::{Digest, Keccak256};
+use crate::crypto::Keccak256Hash;
+#[cfg(not(all(feature = "crypto_radix", target_arch = "wasm32")))]
+use sha3::Digest;
 
-pub fn keccak256(data: &[u8]) -> Box<[u8]> {
-    Keccak256::new_with_prefix(data)
+#[cfg(not(all(feature = "crypto_radix", target_arch = "wasm32")))]
+pub fn keccak256(data: &[u8]) -> Keccak256Hash {
+    sha3::Keccak256::new_with_prefix(data)
         .finalize()
         .as_slice()
-        .into()
+        .try_into()
+        .unwrap()
+}
+
+#[cfg(all(feature = "crypto_radix", target_arch = "wasm32"))]
+pub fn keccak256(data: &[u8]) -> Keccak256Hash {
+    scrypto::prelude::CryptoUtils::keccak256_hash(data).0
 }
 
 #[cfg(feature = "helpers")]
