@@ -80,37 +80,13 @@ yarn install
 
 ### Deploying package
 
-1. The package can be deployed by using the following command, defined [here](../scripts/sample_deploy.ts):
-
-```shell
-yarn sample-deploy
-```
-
-2. The deployed [`package.stokenet.addr`](../scrypto/price_adapter/package.resim.addr) address can be found in the
-   [`price_adapter`](../scrypto/price_adapter)
-   directory.
-3. The script uses [`RadixPackageDeployer`](../scripts/RadixPackageDeployer.ts)
-   with the [`@atlantis-l/radix-tool`](https://github.com/atlantis-l/Radix-Desktop-Tool) package under the hood,
-   as the Radix Desktop Tool uses.
-
-### Instantiating component
-
-1. The component can be instantiated by using the following command, defined [here](../scripts/sample_instantiate.ts):
-
-```shell
-yarn sample-instantiate
-```
-
-### Deploying package
-
-1. The package can be deployed by here: https://enkinet-console.rdx-works-main.extratools.works/
+1. The package can be deployed by here: https://enkinet-console.rdx-works-main.extratools.works/deploy-package/
 2. The deployed [`package.enkinet.addr`](../scrypto/price_adapter/package.enkinet.addr) address can be found in the
    [`price_adapter`](../scrypto/price_adapter)
    directory.
 3. The [deploying script](../scripts/sample-deploy)
    with the [`@atlantis-l/radix-tool`](https://github.com/atlantis-l/Radix-Desktop-Tool) package under the hood,
     **is not working for ENKINET yet**,
-so you can use the https://enkinet-console.rdx-works-main.extratools.works/deploy-package/ page
 
 ### Instantiating component
 
