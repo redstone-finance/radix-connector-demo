@@ -8,31 +8,75 @@ import { z } from "zod";
 const SCRYPTO_DIR = `../scrypto`;
 
 export const NETWORK = {
-  id: NetworkId.Enkinet,
-  name: "enkinet",
+  id: NetworkId.Stokenet,
+  name: "stokenet",
 };
 
-export const CONTRACT_NAME = "price_adapter";
-export const PRIVATE_KEY = {
-  ed25519: RedstoneCommon.getFromEnv("PRIVATE_KEY"),
-};
+export const FEED_ID = "XRD";
+export const DATA_SERVICE_ID = "redstone-primary-prod";
+export const MULTI_FEED_PRICE_ADAPTER_NAME = "multi_feed_price_adapter";
+export const PRICE_ADAPTER_NAME = "price_adapter";
+export const PRICE_FEED_NAME = "price_feed";
+export const PROXY_NAME = "proxy";
+export const BADGE_CREATOR_NAME = "badge_creator";
+
 export const IS_CI = RedstoneCommon.getFromEnv(
   "IS_CI",
   z.boolean().default(false)
 );
+export const PRIVATE_KEY = {
+  ed25519: IS_CI ? "" : RedstoneCommon.getFromEnv("PRIVATE_KEY"),
+};
 
-export async function loadAddress(name: string, subdirectory?: string) {
+export async function loadAddress(
+  entityType: "component" | "package",
+  contractName: string,
+  clientName?: string
+) {
   return (
-    await fs.promises.readFile(getFilename(name, subdirectory), "utf8")
+    await fs.promises.readFile(
+      getContractFilename(
+        formatAddressFilename(clientName, entityType),
+        contractName,
+        "deployed"
+      ),
+      "utf8"
+    )
   ).trim();
 }
 
-export function getFilename(name: string, subdirectory?: string) {
+export async function saveAddress(
+  entityType: "component" | "package",
+  contractName: string,
+  address: string,
+  clientName?: string
+) {
+  await fs.promises.writeFile(
+    getContractFilename(
+      formatAddressFilename(clientName, entityType),
+      contractName,
+      "deployed"
+    ),
+    address
+  );
+}
+
+export function getContractFilename(
+  filename: string,
+  ...subdirectories: string[]
+) {
   return path.join(
     __dirname,
     SCRYPTO_DIR,
-    CONTRACT_NAME,
-    subdirectory ? subdirectory : name,
-    subdirectory ? name : ""
+    "contracts",
+    ...subdirectories,
+    filename
   );
+}
+
+function formatAddressFilename(
+  clientName: string | undefined,
+  entityType: "component" | "package"
+) {
+  return `${clientName ? `${clientName}.` : ""}${NETWORK.name}.${entityType}.addr`;
 }

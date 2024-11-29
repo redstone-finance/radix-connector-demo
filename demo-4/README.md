@@ -104,7 +104,7 @@ yarn sample-instantiate
 
 ### Sample run
 
-1. The scenario above can be run by using the following command, defined [here](../scripts/sample_run.ts):
+1. The scenario above can be run by using the following command, defined [here](../scripts/read-XRD.ts):
 2. The script uses [`PriceAdapterRadixContractConnector`](../src/contracts/price_adapter/PriceAdapterRadixContractConnector.ts)
 
 ```shell

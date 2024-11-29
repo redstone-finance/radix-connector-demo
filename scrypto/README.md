@@ -3,17 +3,17 @@
 <!-- TOC -->
 
 - [RedStone Scrypto environment](#redstone-scrypto-environment)
-    - [Scrypto](#scrypto)
-    - [Local - Radix Engine Simulator](#local---radix-engine-simulator)
-        - [Preparing sample data](#preparing-sample-data)
-        - [Using the PriceAdapter contract](#using-the-priceadapter-contract)
-            - [See here how the contract works](#see-here-how-the-contract-works)
-        - [Running tests](#running-tests)
-        - [Preparing docs](#preparing-docs)
-    - [Testnet & mainnet](#testnet--mainnet)
-        - [Wallet](#wallet)
-        - [Using the PriceAdapter contract](#using-the-priceadapter-contract-1)
-            - [See here how the contract works](#see-here-how-the-contract-works-1)
+  - [Scrypto](#scrypto)
+  - [Local - Radix Engine Simulator](#local---radix-engine-simulator)
+    - [Preparing sample data](#preparing-sample-data)
+    - [Using the PriceAdapter contract](#using-the-priceadapter-contract)
+      - [See here how the contract works](#see-here-how-the-contract-works)
+    - [Running tests](#running-tests)
+    - [Preparing docs](#preparing-docs)
+  - [Testnet & mainnet](#testnet--mainnet)
+    - [Wallet](#wallet)
+    - [Using the PriceAdapter contract](#using-the-priceadapter-contract-1)
+      - [See here how the contract works](#see-here-how-the-contract-works-1)
 
 <!-- TOC -->
 
@@ -31,11 +31,7 @@ cargo install --force radix-clis
 ### Preparing sample data
 
 The scripts below process the given sample data payload and return the aggregated data in the output logs. To prepare
-the data, execute
-
-```shell 
-make update_data
-```
+the data, execute `make update_data` in the `scrypto` directory.
 
 1. A payload generator from [`../../sdk/scripts/payload-generator/`](../../sdk/scripts/payload-generator/index.ts) is
    used under the hood
@@ -44,10 +40,10 @@ make update_data
 
 ### Using the PriceAdapter contract
 
-1. The contract can be deployed and initialized by using `make deploy` command.
-    1. The deployed [`package.resim.addr`](price_adapter/package.resim.addr)
-       and [`component.resim.addr`](price_adapter/package.resim.addr) hashes can be found in the
-       [`price_adapter`](price_adapter)
+1. The contract can be deployed and initialized by using `make deploy_adapter` command.
+    1. The deployed [`package.resim.addr`](contracts/price_adapter/deployed/package.resim.addr)
+       and [`component.resim.addr`](contracts/price_adapter/deployed/package.resim.addr) hashes can be found in the
+       [`price_adapter`](contracts/price_adapter)
        directory.
 1. The predefined methods are prepared for using the contracts:
     1. `make write_prices` writes the [prepared sample data](#preparing-sample-data) to the contract (RedStone push
@@ -58,7 +54,7 @@ make update_data
 
 The values returned by the scripts are visible under the Outputs
 
-#### See [here](price_adapter/README.md) how the contract works
+#### See [here](contracts/price_adapter/README.md) how the contract works
 
 ### Running tests
 
@@ -90,7 +86,7 @@ and then find it in the [`target`](./target) directory.
     1. use https://stokenet-console.radixdlt.com/ for Stokenet
        (or https://console.radixdlt.com/ for mainnet).
     2. You can also install a desktop tool: https://github.com/atlantis-l/Radix-Desktop-Tool/releases or
-    3. use prepared scripts from [test/scipts](../test/scripts) directory:
+    3. use prepared scripts from [scipts](../scripts) directory:
 
 ```shell
 yarn sample-deploy
@@ -110,4 +106,4 @@ filling the `PRIVATE_KEY` variable in `.env` and/or
 yarn sample-run
 ```
 
-#### See [here](price_adapter/README.md) how the contract works
+#### See [here](contracts/price_adapter/README.md) how the contract works

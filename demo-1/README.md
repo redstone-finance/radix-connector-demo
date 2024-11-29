@@ -3,7 +3,7 @@
 ## Scrypto&resim environment
 
 1. Install Rust & Scrypto toolchain as described [here](https://docs.radixdlt.com/v1/docs/getting-rust-scrypto).
-1. Install `resim` - an entry point command to interact with the Radix Engine Simulator for local development purposes
+2. Install `resim` - an entry point command to interact with the Radix Engine Simulator for local development purposes
 
 ```shell
 cargo install --force radix-clis
@@ -21,14 +21,14 @@ See the [`Makefile`](../scrypto/Makefile) responsible for the commands below.
 The scripts below process the given sample data payload and return the aggregated data in the output logs. To prepare
 the data, execute
 
-```shell 
+```shell
 make -C ../scrypto update_data
 ```
 
 1. A payload generator from [`../../../sdk/scripts/payload-generator/`](../payload-generator/index.ts) is
    used under the hood
-1. The files are saved into the [`sample-data`](../scrypto/sample-data) directory
-1. The function also updates the current time in the `resim` environment
+2. The files are saved into the [`sample-data`](../scrypto/sample-data) directory
+3. The function also updates the current time in the `resim` environment
 
 ## Using the PriceAdapter contract
 
