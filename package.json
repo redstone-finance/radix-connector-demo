@@ -5,13 +5,7 @@
   "types": "dist/src/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && tsc --build tsconfig.json",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "read-XRD": "ts-node scripts/read-XRD.ts",
-    "test": "IS_CI=true jest",
-    "test-e2e": "jest e2e.spec.ts",
-    "coverage": "jest --json --coverage --testLocationInResults --outputFile=coverage/report.json --coveragePathIgnorePatterns=\"src/index.ts\" --coveragePathIgnorePatterns=\"src/sample-run.ts\" --coveragePathIgnorePatterns=\"src/radix/parser/generated/converter.ts\""
+    "read-XRD": "ts-node scripts/read-XRD.ts"
   },
   "dependencies": {
     "@redstone-finance/radix-connector": "file:redstone-finance-radix-connector-0.7.3.tgz"
